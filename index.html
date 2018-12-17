@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Todo List</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css" />
+        <link rel="stylesheet" href="todo.css" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="content-wrapper clearfix well">
+                <h2>To Do List</h2>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading bg-white clearfix">
+                            <div class="col-md-6 margin-top-5px padding-left-0px">
+                                <b>To Do </b>
+                            </div>
+                            <div>
+                                <button class="btn btn-default pull-right btn-sm" id="btn-add-todo-task">Add New</button>
+                            </div>
+                        </div>
+                        <div class="panel-body todo-panel">
+                            <ul id="container-todo" class="sortble">
+                                <li class="box-item">
+                                    <div class="todo-text">
+                                        Task description
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+                                            <i class="fas fa-user-tie"></i> Amir Hossain
+                                        </div>
+                                        <div class="col-md-6">
+                                            <i class="far fa-clock"></i> 01 Dec, 2018
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="box-item">
+                                    <div class="todo-text">
+                                        Delete one of the row
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+                                            <i class="fas fa-user-tie"></i> John Doe
+                                        </div>
+                                        <div class="col-md-6">
+                                            <i class="far fa-clock"></i> 05 Feb, 2018
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading bg-white clearfix">
+                            <div class="col-md-6 margin-top-5px padding-left-0px">
+                                <strong>In Progress</strong>
+                            </div>
+                            <div>
+                                <button class="btn btn-default pull-right btn-sm" id="add-in-progress">Add New</button>
+                            </div>
+                        </div>
+                        <div class="panel-body todo-panel">
+                            <ul id="container-inwork" class="sortble">
+                                <li class="box-item">
+                                    <div class="todo-text">
+                                       Task Description
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+                                            <i class="fas fa-user-tie"></i> John Doe
+                                        </div>
+                                        <div class="col-md-6">
+                                            <i class="far fa-clock"></i> 30 Jan, 2018
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="box-item">
+                                    <div class="todo-text">
+                                        Description
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+                                            <i class="fas fa-user-tie"></i> John Doe
+                                        </div>
+                                        <div class="col-md-6">
+                                            <i class="far fa-clock"></i> 30 Jan, 2018
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading bg-white clearfix">
+                            <div class="col-md-6 margin-top-5px padding-left-0px">
+                                <strong>Done</strong>
+                            </div>
+                            <div>
+                                <button class="btn btn-default pull-right btn-sm" id="add-done-task">Add New</button>
+                            </div>
+                        </div>
+                        <div class="panel-body todo-panel">
+                            <ul id="container-done" class="sortble">
+                                <li class="box-item">
+                                    <div class="todo-text">
+                                        Description
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+                                            <i class="fas fa-user-tie"></i> John Doe
+                                        </div>
+                                        <div class="col-md-6">
+                                            <i class="far fa-clock"></i> 10 Feb, 2018
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Add New</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="user">User</label>
+					<input type="text" class="form-control" id="user" placeholder="User name">
+				</div>
+				<div class="form-group">
+					<label for="task">Task</label>
+					<input type="text" class="form-control" id="task" placeholder="Task description">
+				</div>
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary" id="action-to-do">Add New</button>
+		</div>
+    </div>
+  </div>
+</div>
+       
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="todo.js"></script>
+	</body>
+</html>
