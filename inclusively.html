@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p>The best way to loop through an array is using a standard for loop:</p>
+
+<p id="demo"></p>
+
+<script>
+var arr, text, fLen, i;
+arr = [];
+
+text = "<ul>";
+
+for (i = 0; i < 100; i++) {
+  if (isEven(i)){
+  	arr.push(i);
+  }
+  
+  
+}
+arr.push(100)
+text += "</ul>";
+
+document.getElementById("demo").innerHTML = arr;
+
+function isEven(value){
+    if (value%2 == 0)
+        return true;
+    else
+        return false;
+}
+</script>
+
+</body>
+</html>
