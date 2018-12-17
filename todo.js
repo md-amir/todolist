@@ -6,7 +6,7 @@ $(document.body).on("click","#btn-add-todo-task",function(){
 	$("#myModal").modal();
 });
 $(document.body).on("click","#add-in-progress",function(){
-	window.taskContainer = "container-inwork";
+	window.taskContainer = "container-inprogress";
 	$("#myModal").modal();
 });
 $(document.body).on("click","#add-done-task",function(){
@@ -47,12 +47,12 @@ $("#container-todo").droppable({
   }
 });
 
-$("#container-inwork").droppable({
+$("#container-inprogress").droppable({
   drop: function(event, ui) {
     var itemid = $(event.originalEvent.toElement).attr("itemid");
     $('.box-item').each(function() {
       if ($(this).attr("itemid") === itemid) {
-        $(this).appendTo("#container-inwork");
+        $(this).appendTo("#container-inprogress");
       }
     });
   }
